@@ -58,3 +58,14 @@ resource "aws_instance" "app" {
     echo "<html><body><div>Hello, world!</div></body></html>" > /var/www/html/index.html
     EOF
 }
+
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+  
+  config = {
+    organization = "nerdmeeting-cloud1"
+    workspaces = {
+      name = "learn-terraform-data-sources-vpc"
+    }
+  }
+}
