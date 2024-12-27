@@ -42,6 +42,8 @@ module "elb_http" {
 }
 
 resource "aws_instance" "app" {
+  count = var.instances_per_subnet * length(data.terraform_remote_state.vpc.outputs.private_subnet_ids)
+  
   ami = "ami-04d29b6f966df1537"
 
   instance_type = var.instance_type
