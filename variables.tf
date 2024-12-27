@@ -1,5 +1,8 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
+variable "project_version" {
+  description = "Version of the project"
+  type = string
+  default = "0.1.0"
+}
 
 variable "instances_per_subnet" {
   description = "Number of EC2 instances in each private subnet"
