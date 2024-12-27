@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 provider "aws" {
-  region = "us-east-1"
+  region = data.terraform_remote_state.vpc.outputs.aws_region
 }
 
 resource "random_string" "lb_id" {
